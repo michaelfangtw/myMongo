@@ -1,5 +1,5 @@
 # myMongo sample
-目錄:docker/
+目錄: source
 ```
 docker-compose.yml
 mongosh 資料庫shell
