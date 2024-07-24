@@ -1,7 +1,7 @@
 # myMongo sample
 目錄: source
 ```
-docker-compose.yml
+docker-compose.yml docker設定檔
 mongosh 資料庫shell
 testConn.js  連線測試
 testInsertMongo.js 新增測試
