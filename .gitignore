@@ -1,0 +1,7 @@
+# Ignore MongoDB log and journal files
+/source/data/journal/
+/source/data/WiredTiger*
+/source/data/diagnostic.data/
+
+# You may also want to ignore other local data
+/source/data/db/
