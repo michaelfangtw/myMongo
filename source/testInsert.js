@@ -5,7 +5,9 @@ const moment = require('moment-timezone');
 async function run() {
     const uri = process.env.MONGO_URI;
     console.log(uri);
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+    // The change is here: remove the second argument (the options object)
+    const client = new MongoClient(uri);
 
     try {
         console.log("Connecting to MongoDB...");
@@ -31,4 +33,5 @@ async function run() {
     }
 }
 
+// Call the main function
 run().catch(console.dir);
