@@ -1,13 +1,38 @@
 version: '3.1'
 
 services:
+  node-test:
+    build: .
+    image: node-mongo-test:1.0
+    container_name: node-test
+    env_file:
+      - .env
+    environment:
+      TZ: "Asia/Taipei"
+    volumes:
+      - ./logs:/app/logs
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    depends_on:
+      - mongo
+    restart: unless-stopped
+    networks:
+      - default
+
   mongo:
     image: mongo:7.0.12
     container_name: mongo
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: your_password
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=your_password
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
       - ./data:/data/db
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
+

@@ -1,0 +1,9 @@
+# Exclude database files and local runtime artifacts from the build context
+data/
+node-mongo-test/.env
+node_modules/
+.env
+.git
+.gitignore
+.DS_Store
+npm-debug.log
